@@ -14,7 +14,7 @@ against a Metasploitable 2 target in an isolated lab network.
 
 Access from Windows operator workstation via SSH tunnel.
 
-![Scanner VM – network and SSH access](screenshots/01-scanner-vm-network.png)
+![Scanner VM – network and SSH access](screenshots/01-ssh-login.png)
 
 ---
 
