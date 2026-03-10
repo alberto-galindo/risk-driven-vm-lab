@@ -25,8 +25,8 @@
 | Host | OS | IP | Role |
 |------|----|----|------|
 | Windows Workstation | Windows 11 | 192.168.102.1 | Operator |
-| Ubuntu Server | Ubuntu 24.04 LTS | 192.168.102.131 | Scanner / DefectDojo |
-| Metasploitable 2 | Linux | TBD | Target |
+| Ubuntu Server | Ubuntu 24.04 LTS | 192.168.79.131 | Scanner / DefectDojo |
+| Metasploitable 2 | Linux | 192.168.79.132 | Target |
 
 > All VMs run on VMware Workstation in an isolated host-only network segment.
 
