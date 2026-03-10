@@ -1,8 +1,3 @@
-Entendido. Te lo voy a dar en un formato de bloque de código "limpio" (sin procesar el Markdown dentro de mi respuesta), para que al copiarlo y pegarlo no intente aplicar estilos y se mantenga como texto plano.
-
-Copia esto:
-
-```text
 # 🛡️ DefectDojo – Finding Management
 
 Centralizing vulnerability data from GVM (OpenVAS) into DefectDojo to perform lifecycle management, triage, and risk-based prioritization.
