@@ -18,15 +18,54 @@ Access from Windows operator workstation via SSH tunnel.
 
 ---
 
-## 🐳 Deployment
+### 📋 Prerequisites & Deployment
 
-Greenbone Community Edition runs fully containerized via Docker Compose.
+This lab environment leverages Docker containers to orchestrate Greenbone Community Edition. Follow these steps to prepare your system and deploy the services.
 
-    cd /home/labuser/greenbone-community-container
-    docker compose up -d
-    docker ps --format "table {{.Names}}\t{{.Image}}\t{{.Ports}}"
+#### 1. System Dependencies
 
-![Docker installed and containers running](screenshots/02-docker-installed.png)
+Ensure your host has **Docker Engine** and **Docker Compose** installed. If not, follow the official documentation:
+
+* [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+* [Install Docker Compose](https://docs.docker.com/compose/install/)
+
+Verify your installation:
+
+```bash
+docker --version
+docker compose version || docker-compose version
+
+```
+
+#### 2. Environment Initialization
+
+Navigate to the directory containing the project's `docker-compose.yml` file:
+
+```bash
+cd /home/labuser/greenbone-community-container
+
+```
+
+#### 3. Deployment
+
+Pull the necessary images and launch the Greenbone services in detached mode:
+
+```bash
+# Using modern Docker Compose V2
+docker compose up -d
+
+```
+
+*(Note: If your system uses the legacy standalone Docker Compose, replace `docker compose` with `docker-compose` in the commands above.)*
+
+#### 4. Verification
+
+Confirm that all containers are operational and services are correctly bound to their ports:
+
+```bash
+docker compose ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+```
 
 ---
 
