@@ -1,61 +1,64 @@
-# 🛡️ DefectDojo – Finding Management
+# 🛡️ DefectDojo – Orchestration & Finding Management
 
-Centralizing vulnerability data from GVM (OpenVAS) into DefectDojo to perform lifecycle management, triage, and risk-based prioritization.
-
----
+Centralized vulnerability management and deduplication of findings using **DefectDojo** to transform raw scan data into an actionable security roadmap.
 
 ## 🖥️ Environment
 
-| Host | IP | Role |
-|------|----|------|
-| Ubuntu Server 24.04 LTS | 192.168.102.131 | Orchestrator (DefectDojo) |
-
-DefectDojo provides the interface to track findings from "Detected" to "Remediated".
-
-![DefectDojo Dashboard](screenshots/06-defectdojo-dashboard.png)
-
----
+| Component | Role | Data Source |
+| --- | --- | --- |
+| **DefectDojo Stack** | Orchestration & Deduplication | Greenbone XML Reports |
+| **PostgreSQL** | Persistent Finding Storage | N/A |
+| **Redis/Celery** | Asynchronous Task Processing | N/A |
 
 ## 🐳 Deployment
 
-DefectDojo is deployed as a multi-container stack via Docker Compose.
+DefectDojo runs as a multi-container microservices architecture. It handles the ingestion of diverse security tool outputs to provide a "single pane of glass."
 
 ```bash
-cd ~/defectdojo-container
+cd /home/labuser/risk-driven-vm-lab/labs/defectdojo
 docker compose up -d
+# Monitor service initialization
+docker compose logs -f uwsgi
 
 ```
 
-Verify that all services (PostgreSQL, Redis, Celery, and Django) are running:
+## 🔐 Accessing the VMS Console
+
+By default, the application is exposed on port **8080**. For remote management, we use secure port forwarding.
 
 ```bash
-docker ps --format "table {{.Names}}\t{{.Status}}"
+ssh -L 8080:127.0.0.1:8080 labuser@192.168.102.131
 
 ```
 
----
+Navigate to `http://127.0.0.1:8080` and log in with the administrator credentials defined during setup.
 
-## 🔗 Integration Flow
+## 🎯 Finding Ingestion & Modeling
 
-1. **Report Export:** Extract the scan results from GVM (OpenVAS) in XML format.
-2. **Engagement Setup:** Create a new "Engagement" in DefectDojo for the target lab.
-3. **Ingest:** Import the XML file using the dedicated GVM parser.
-4. **Lifecycle:** Track vulnerability remediation progress over time.
+To maintain enterprise-grade organization, findings are mapped to a specific business hierarchy before analysis.
 
----
+1. **Product Modeling:**
+* Navigate to **Products > Add Product**.
+* Define a **Product Type** (e.g., *Cloud Infrastructure*).
+* Create the **Product** (e.g., *Metasploitable Lab*).
 
-## 🎯 Objective
 
-Transition from raw scan data to a manageable security posture:
+2. **Engagement Setup:**
+* Within the Product, create a **New Engagement**.
+* Set the status to *In Progress*.
 
-* **Centralization:** Single source of truth for all vulnerabilities.
-* **Triage:** Distinguish between false positives and real threats.
-* **Tracking:** Automated aging and status reporting for remediation teams.
 
----
+3. **Importing Results:**
+* Select **Import Scan Results**.
+* **Scan Type:** `Greenbone`.
+* **File:** Upload the `.xml` report exported from GSA.
+* **Deduplication:** Enable *Deduplication* to group redundant findings across multiple ports.
 
-## 🧪 Status
 
-* [ ] Deployment completed
-* [ ] GVM parser configuration
-* [ ] Initial data ingestion
+
+## 📊 Results & Deduplication
+
+Once imported, DefectDojo processes the XML data, normalizing the severity levels and merging identical CVEs.
+
+* **Finding Consolidation:** Thousands of raw log lines are converted into distinct, manageable security "Findings."
+* **Audit Trail:** Every finding maintains its original evidence from Greenbone while allowing for manual analyst verification.
