@@ -93,7 +93,7 @@ To transition from automated detection to risk-based management, the results are
 3. Click the **Download** icon (top left).
 4. Configure the export:
 * **Format:** `XML`
-* 
+
 ![Export](screenshots/07-export.png)
 
 5. Save the report as `metasploitable_vulnerabilities.xml`.
