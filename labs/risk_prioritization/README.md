@@ -29,7 +29,7 @@ By applying this logic, we separate **Technical Severity** from **Business Risk*
 * **Scenario A:** A CVSS 9.8 vulnerability with an EPSS of 0.001% (Low immediate risk).
 * **Scenario B:** A CVSS 7.5 vulnerability listed in CISA KEV (Critical immediate risk).
 
-> **Senior Conclusion:** The final report focuses remediation efforts on **Scenario B**, significantly reducing the organization's attack surface with minimal operational overhead.
+> The final report focuses remediation efforts on **Scenario B**, significantly reducing the organization's attack surface with minimal operational overhead.
 
 ## 🚀 Final Delivery
 
@@ -37,5 +37,3 @@ By applying this logic, we separate **Technical Severity** from **Business Risk*
 * **Remediation Roadmap:** A prioritized list of vulnerabilities based on the EPSS/CISA KEV intersection.
 
 ---
-
-**Next Step:** Since your scan is likely finished or near completion, would you like me to help you troubleshoot the **XML export settings** in Greenbone to ensure DefectDojo reads the "Full and Fast" results correctly?
