@@ -65,18 +65,47 @@ To ensure accurate vulnerability assessment, the Metasploitable 2 target is conf
 
 ---
 
-## 📊 Scan Results
+### 📊 Scan Results
 
-Once the task is initiated, the GVM engine processes 170k+ NVTs against the Metasploitable host.
+The GVM engine successfully processed 170k+ NVTs against the Metasploitable 2 target. The "Full and Fast" routine completed the vulnerability assessment, providing a comprehensive audit of the service landscape.
 
-* **Scan Status:** `Running` / `Done`
-* **Coverage:** Full enumeration of ports and vulnerability checks.
+![Scan info](screenshots/05-scan-info.png)
 
-![Task status and progress](screenshots/05-scan-progress.png)
+* **Scan Duration:** 33 minutes
+* **Target:** 192.168.79.132
+
+![Vulnerabilities](screenshots/06-vulnerabilities.png)
+
+* **Findings Summary:**
+* **Critical:** 13
+* **High:** 8
+* **Medium:** 31
+* **Low:** 5
 
 ---
 
-## 🚀 Next Steps
+### 📥 Report Export & Orchestration
 
-* **Report Export:** Generate a filtered report in XML format to be imported into DefectDojo.
-* **Risk Analysis:** Aggregate findings in DefectDojo to prioritize remediation based on business impact.
+To transition from automated detection to risk-based management, the results are exported in **XML (v1)** format. This ensures full metadata preservation—including CVSS vectors, service descriptions, and references—necessary for accurate ingestion into DefectDojo.
+
+1. Navigate to **Scans > Reports**.
+2. Select the completed report for the Metasploitable 2 target.
+3. Click the **Download** icon (top left).
+4. Configure the export:
+* **Format:** `XML`
+* 
+![Export](screenshots/07-export.png)
+
+5. Save the report as `metasploitable_vulnerabilities.xml`.
+
+---
+
+### 🚀 Next Steps
+
+With the evidence captured in the XML artifact, the project moves to the orchestration phase:
+
+* **Data Ingestion:** Import `metasploitable_vulnerabilities.xml` into **DefectDojo**.
+* **Risk Analysis:** Leverage the **EPSS** and **CISA KEV** integration within DefectDojo to prioritize remediation based on actual business impact and exploitability, rather than technical severity alone.
+
+---
+
