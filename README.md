@@ -1,6 +1,6 @@
 # 🛡️ Risk-Driven Vulnerability Management Lab
 
-![Status](https://img.shields.io/badge/status-in%20progress-yellow)
+![Status](https://img.shields.io/badge/status-completed-green)
 ![Stack](https://img.shields.io/badge/stack-Greenbone%20%7C%20DefectDojo%20%7C%20EPSS-blue)
 ![Platform](https://img.shields.io/badge/platform-VMware%20%7C%20Docker-lightgrey)
 
@@ -51,4 +51,4 @@
 |-----|--------|
 | [Greenbone CE – Deployment & Scanning](labs/greenbone/README.md) | ✅ Completed |
 | [DefectDojo – Finding Management](labs/defectdojo/README.md) | ✅ Completed |
-| [EPSS + CISA KEV – Risk Prioritization](labs/risk_prioritization/README.md) | 🔜 In progress |
+| [EPSS + CISA KEV – Risk Prioritization](labs/risk_prioritization/README.md) | ✅ Completed |
