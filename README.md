@@ -50,5 +50,5 @@
 | Lab | Status |
 |-----|--------|
 | [Greenbone CE – Deployment & Scanning](labs/greenbone/README.md) | ✅ Completed |
-| [DefectDojo – Finding Management](labs/defectdojo/README.md) | 🔜 In progress |
-| [EPSS + CISA KEV – Risk Prioritization](labs/risk_prioritization/README.md) | 🔜 Coming soon |
+| [DefectDojo – Finding Management](labs/defectdojo/README.md) | ✅ Completed |
+| [EPSS + CISA KEV – Risk Prioritization](labs/risk_prioritization/README.md) | 🔜 In progress |
