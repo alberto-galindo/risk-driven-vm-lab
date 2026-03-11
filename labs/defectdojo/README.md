@@ -33,30 +33,40 @@ ssh -L 8080:127.0.0.1:8080 labuser@192.168.102.131
 
 Navigate to `http://127.0.0.1:8080` and log in with the administrator credentials defined during setup.
 
+![Log In](screenshots/08-dd-login.png)
+
 ## 🎯 Finding Ingestion & Modeling
 
 To maintain enterprise-grade organization, findings are mapped to a specific business hierarchy before analysis.
 
 1. **Product Modeling:**
-* Navigate to **Products > Add Product**.
+* Navigate to **Products > Add Product Type**.
 * Define a **Product Type** (e.g., *Cloud Infrastructure*).
-* Create the **Product** (e.g., *Metasploitable Lab*).
 
+![Defining Cloud Infrastructure](screenshots/09-product-type.png)
+
+* Navigate to **Products > Add Product**.
+* Create the **Product** (e.g., *Metasploitable Lab*).
+  
+![Adding Product](screenshots/10-create-product.png)
 
 2. **Engagement Setup:**
 * Within the Product, create a **New Engagement**.
 * Set the status to *In Progress*.
 
+![Engagement](screenshots/11-engagement.png)
 
 3. **Importing Results:**
 * Select **Import Scan Results**.
-* **Scan Type:** `Greenbone`.
+* **Scan Type:** `OpenVAS Parser v2`.
 * **File:** Upload the `.xml` report exported from GSA.
 * **Deduplication:** Enable *Deduplication* to group redundant findings across multiple ports.
 
-
+![Results imported](screenshots/12-imported.png)
 
 ## 📊 Results & Deduplication
+
+![Dashboard](screenshots/13-dashboard.png)
 
 Once imported, DefectDojo processes the XML data, normalizing the severity levels and merging identical CVEs.
 
